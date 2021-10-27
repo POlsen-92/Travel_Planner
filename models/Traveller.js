@@ -12,7 +12,11 @@ Traveller.init({
         allowNull: false,
     }
 },{
-    sequelize
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'traveller',
 });
 
 module.exports=Traveller

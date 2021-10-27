@@ -3,16 +3,23 @@ const Traveller = require("./Traveller");
 const Trip = require("./Trip");
 
 // Travellers have many Locations
-Traveller.hasMany(Location, {
-    foreignKey: 'traveller_id'
+Traveller.hasMany(Trip, {
+    onDelete: 'CASCADE'
 })
 
 // Locations have many travellers through trips
-Location.hasMany(Traveller, {
-    through: Trip,
+Location.hasMany(Trip, {
     // as: 'product_tags',
-    foreignKey: 'location_id',
+    onDelete: 'CASCADE',
   });
+
+Trip.belongsTo(Traveller, {
+    foreignKey: "traveller_id",
+})
+
+Trip.belongsTo(Location, {
+    foreignKey: 'location_id',
+})
 
 module.exports={
     Location,

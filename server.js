@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 // Requiring our models for syncing
 const {User,Pet,Group} = require('./models');
-const routes = require("./controllers");
+const routes = require("./routes");
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
